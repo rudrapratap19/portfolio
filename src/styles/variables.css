@@ -1,0 +1,50 @@
+:root {
+  /* Apple Primary Colors */
+  --primary-color: #007aff;
+  --secondary-color: #34c759;
+  --accent-color: #ff3b30;
+  --warning-color: #ff9500;
+  
+  /* Apple Gradients */
+  --primary-gradient: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+  --secondary-gradient: linear-gradient(135deg, #34c759 0%, #30d158 100%);
+  --hero-gradient: linear-gradient(135deg, #f2f2f7 0%, #ffffff 100%);
+  --dark-gradient: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+  
+  /* Apple Text Colors */
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --text-tertiary: #a1a1a6;
+  --text-light: #ffffff;
+  --text-link: #007aff;
+  
+  /* Apple Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f2f2f7;
+  --bg-tertiary: #e5e5e7;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  
+  /* Apple Spacing & Sizing */
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Apple Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  
+  /* Spacing Scale */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+}
