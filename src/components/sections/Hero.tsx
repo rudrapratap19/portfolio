@@ -29,7 +29,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <a
-                href="/src/assets/Rudra.pdf"
+                href="../../assets/Rudra.pdf"
                 download
                 className="flex items-center gap-2 rounded-lg bg-blue-600 px-7 py-3 text-white transition-all hover:bg-blue-700"
               >
@@ -74,7 +74,7 @@ export default function Hero() {
           >
             <div className="relative h-[400px] w-[400px] mx-auto overflow-hidden">
               <img
-                src="/src/assets/image.jpg"
+                src="../../assets/image.jpg"
                 alt="Rudra Pratap Singh"
                 className="h-full w-full object-cover object-center rounded-full border-4 border-blue-500/20"
                 loading="eager"
