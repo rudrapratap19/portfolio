@@ -46,45 +46,31 @@ export default function Experience() {
           </div>
 
           <motion.div 
-            className="mt-12 grid gap-8 lg:grid-cols-2"
+            className="relative mt-12"
             variants={containerVariants}
           >
-            {siteData.experience.map((exp, index) => (
-              <motion.div
-                key={exp.role}
-                className="card group hover:shadow-xl"
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-brand from-brand/30 to-blue-600/30">
-                    {index === 0 && (
-                      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-2m-2 0H7m14 0V9a2 2 0 00-2-2M9 7h6m-6 4h6m-6 4h6" />
-                      </svg>
-                    )}
-                    {index === 1 && (
-                      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z" />
-                      </svg>
-                    )}
-                    {index === 2 && (
-                      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-                      </svg>
-                    )}
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between md:space-y-0">
+            <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-blue-600/60 via-blue-400/30 to-transparent" />
+            <div className="space-y-8 pl-12">
+              {siteData.experience.map((exp) => (
+                <motion.div
+                  key={exp.role}
+                  className="relative"
+                  variants={itemVariants}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="absolute -left-12 top-6 flex h-7 w-7 items-center justify-center rounded-full border border-blue-500/40 bg-gray-950">
+                    <span className="h-2.5 w-2.5 rounded-full bg-blue-500" />
+                  </span>
+                  <div className="card group hover:shadow-xl">
+                    <div className="flex flex-col space-y-4 md:flex-row md:items-start md:justify-between md:space-y-0">
                       <div>
                         <h3 className="text-lg font-semibold text-white">
                           {exp.role}
                         </h3>
                         <p className="text-brand font-medium">{exp.org}</p>
                       </div>
-                      <span className="inline-flex items-center rounded-full  px-3 py-1 text-sm font-medium  bg-gray-800 text-gray-200">
+                      <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-gray-800 text-gray-200">
                         {exp.period}
                       </span>
                     </div>
@@ -100,19 +86,18 @@ export default function Experience() {
                       ))}
                     </ul>
 
-                    {/* Add a "Current" badge for ongoing roles */}
                     {exp.period.includes('Present') && (
                       <div className="mt-4">
-                        <span className="inline-flex items-center rounded-full  px-2 py-1 text-xs font-medium  bg-green-900/30 text-green-300">
+                        <span className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-green-900/30 text-green-300">
                           <div className="mr-1 h-1.5 w-1.5 rounded-full bg-green-500"></div>
                           Currently Active
                         </span>
                       </div>
                     )}
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>
