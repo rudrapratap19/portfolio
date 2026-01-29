@@ -1,235 +1,228 @@
 # Rudra Pratap Singh - Portfolio Website
 
-A modern, responsive portfolio website built with React, TypeScript, Tailwind CSS, and Framer Motion. Features dark/light mode, project filtering, smooth animations, and a centralized data management system.
+A modern, responsive portfolio website showcasing projects, skills, and experience. Built with React, TypeScript, Tailwind CSS, and Framer Motion.
 
-## 🚀 Features
+## ✨ Features
 
-- **Modern Design**: Clean, professional design with smooth animations
-- **Dark/Light Mode**: Toggle between themes with system preference detection
-- **Responsive**: Works perfectly on all devices
-- **Project Filtering**: Search and filter projects by technology
-- **Centralized Data**: Single file to manage all content
-- **Fast Performance**: Built with Vite for lightning-fast development and builds
-- **Accessibility**: Screen reader friendly with proper ARIA labels
-- **SEO Ready**: Semantic HTML structure for better search engine optimization
+- **Modern Dark Theme**: Sleek, professional dark design with smooth animations
+- **AI Chatbot**: Integrated Gemini-powered AI assistant for visitor engagement
+- **Responsive Design**: Fully responsive across all devices and screen sizes
+- **Timeline Layout**: Beautiful timeline view for experience journey
+- **Smooth Animations**: Framer Motion animations for enhanced UX
+- **Social Links**: GitHub, LinkedIn, LeetCode, and GeeksforGeeks integration
+- **Centralized Data Management**: Single `siteData.ts` file for all content
+- **Fast Performance**: Vite + optimizations
 
 ## 🛠️ Tech Stack
 
-- **React 18** - Modern React with hooks
-- **TypeScript** - Type safety and better development experience
+- **React 18** - Modern UI framework with hooks
+- **TypeScript** - Type-safe development
 - **Tailwind CSS** - Utility-first styling
 - **Framer Motion** - Smooth animations and transitions
-- **Vite** - Fast build tool and development server
-- **Clsx** - Utility for conditional CSS classes
+- **Vite** - Next-generation build tool
+- **Google Generative AI** - Chatbot functionality
+- **React Icons** - Icon library
+- **EmailJS** - Contact form emails
 
 ## 📁 Project Structure
 
 ```
-rudra-portfolio/
+portfolio/
 ├── public/
-│   ├── favicon.svg
-│   └── index.html
+│   └── vite.svg
 ├── src/
-│   ├── components/           # Reusable UI components
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   ├── ThemeToggle.tsx
-│   │   └── sections/         # Page sections
-│   │       ├── Hero.tsx
-│   │       ├── About.tsx
-│   │       ├── Education.tsx
-│   │       ├── Experience.tsx
-│   │       ├── Projects.tsx
-│   │       ├── Skills.tsx
-│   │       ├── Achievements.tsx
-│   │       └── Contact.tsx
+│   ├── components/
+│   │   ├── Header.tsx         # Navigation header
+│   │   ├── Footer.tsx         # Footer section
+│   │   ├── ChatBot.tsx        # AI assistant chatbot
+│   │   ├── ChatBot.css        # Chatbot styles
+│   │   ├── ThemeToggle.tsx    # Theme switcher
+│   │   └── sections/
+│   │       ├── Hero.tsx       # Hero section with intro
+│   │       ├── About.tsx      # About section
+│   │       ├── Education.tsx  # Education timeline
+│   │       ├── Experience.tsx # Experience timeline
+│   │       ├── Projects.tsx   # Portfolio projects
+│   │       ├── Skills.tsx     # Technical skills
+│   │       ├── Achievements.tsx # Awards & recognition
+│   │       └── Contact.tsx    # Contact form
 │   ├── data/
-│   │   └── siteData.ts       # 📍 MAIN DATA FILE
+│   │   └── siteData.ts        # Central data file
 │   ├── hooks/
 │   │   ├── useTheme.ts
 │   │   └── useProjectFilter.ts
 │   ├── utils/
 │   │   └── classNames.ts
-│   ├── assets/
-│   │   └── profile.jpg       # 📍 ADD YOUR PHOTO HERE
 │   ├── styles/
 │   │   └── tailwind.css
+│   ├── assets/
+│   │   ├── Rudra.pdf          # CV/Resume
+│   │   └── image.jpg
 │   ├── App.tsx
 │   └── main.tsx
+├── .env                        # Environment variables (API keys)
+├── .gitignore
 ├── package.json
 ├── tailwind.config.js
 ├── tsconfig.json
 └── vite.config.ts
 ```
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### 1. Create the project
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
 ```bash
-npm create vite@latest rudra-portfolio -- --template react-ts
-cd rudra-portfolio
+git clone https://github.com/rudrapratap19/portfolio.git
+cd portfolio
 ```
 
-### 2. Install dependencies
+2. **Install dependencies**
 ```bash
 npm install
-npm install -D tailwindcss postcss autoprefixer
-npm install framer-motion clsx
 ```
 
-### 3. Initialize Tailwind CSS
-```bash
-npx tailwindcss init -p
+3. **Set up environment variables**
+Create a `.env` file in the root directory:
+```env
+VITE_GEMINI_API_KEY=your_google_generative_ai_api_key
+VITE_EMAILJS_SERVICE_ID=your_emailjs_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
 ```
 
-### 4. Replace all files with the provided code
-- Copy each file from the code provided above
-- Make sure to maintain the exact folder structure
-
-### 5. Add your profile photo
-- Replace `src/assets/profile.jpg` with your actual photo
-- Recommended size: 400x400px or larger, square aspect ratio
-
-### 6. Customize your data
-- Edit `src/data/siteData.ts` to update all your personal information
-- This single file controls all content on the website
-
-### 7. Run the development server
+4. **Start development server**
 ```bash
 npm run dev
 ```
 
 Visit `http://localhost:5173` to see your portfolio!
 
-## ✏️ Customization Guide
+## 🏗️ Building
 
-### Updating Content
-All content is managed through the `src/data/siteData.ts` file. Update:
-
-- **Personal Info**: Name, title, email, phone, summary
-- **Social Links**: GitHub, LinkedIn, LeetCode, etc.
-- **Education**: Schools, degrees, CGPA
-- **Experience**: Jobs, roles, achievements
-- **Projects**: Title, description, tech stack, links
-- **Skills**: Programming languages, tools, frameworks
-- **Achievements**: Awards, recognitions, milestones
-
-### Adding New Projects
-```typescript
-// In src/data/siteData.ts, add to the projects array:
-{
-  title: 'Your New Project',
-  period: 'Jan 2024 - Present',
-  links: [
-    { label: 'GitHub', href: 'https://github.com/...' },
-    { label: 'Live Demo', href: 'https://...' }
-  ],
-  tech: ['React', 'Node.js', 'MongoDB'],
-  summary: 'Brief description of your project',
-  highlights: [
-    'Key feature or achievement',
-    'Another important point'
-  ]
-}
+```bash
+npm run build
 ```
 
-### Customizing Colors
-Update the brand colors in `tailwind.config.js`:
-```javascript
-colors: {
-  brand: {
-    DEFAULT: '#2563eb',  // Your primary color
-    soft: '#3b82f6'      // Lighter version
-  }
-}
-```
+This creates an optimized build in the `dist/` folder.
 
-### Adding New Sections
-1. Create a new component in `src/components/sections/`
-2. Import and add it to `src/App.tsx`
-3. Add corresponding data fields to `src/data/siteData.ts`
+## ✏️ Customization
 
-## 🎨 Design System
+### Update Your Information
+Edit `src/data/siteData.ts` to customize:
+- Personal profile information
+- Education details
+- Work experience
+- Projects
+- Skills
+- Achievements
+- Social links
 
-The portfolio uses a consistent design system:
+### Add Your Resume
+Place your CV/resume as `src/assets/Rudra.pdf`
 
-- **Colors**: Brand blue with semantic colors for different states
-- **Typography**: System fonts with proper hierarchy
-- **Spacing**: Consistent spacing scale using Tailwind
-- **Components**: Reusable card, chip, and button styles
-- **Animations**: Subtle enter/exit animations with Framer Motion
+### Customize Content
+All text content is managed through `siteData.ts`. Update:
+- **Profile**: Name, title, email, phone, summary
+- **Education**: Institutes, degrees, CGPA, period
+- **Experience**: Roles, organizations, achievements
+- **Projects**: Titles, descriptions, technologies, links
+- **Skills**: Languages, frameworks, tools, expertise
+- **Achievements**: Awards and recognitions
 
-## 📱 Responsive Design
+### Set Up Chatbot
+1. Get your Google Generative AI API key from [Google AI Studio](https://aistudio.google.com)
+2. Add it to `.env` as `VITE_GEMINI_API_KEY`
+3. The chatbot will automatically initialize with your portfolio data
 
-- **Mobile First**: Designed for mobile and scaled up
-- **Breakpoints**: 
-  - `sm`: 640px+
-  - `md`: 768px+
-  - `lg`: 1024px+
-  - `xl`: 1280px+
+### Connect Contact Form
+1. Set up an EmailJS account at [emailjs.com](https://www.emailjs.com)
+2. Add your credentials to `.env`
+3. Update email addresses in the Contact section
 
-## ⚡ Performance
+## 🎨 Styling & Colors
 
-- **Vite**: Fast HMR and optimized builds
-- **Code Splitting**: Automatic code splitting for better loading
-- **Image Optimization**: Optimized images with proper sizing
-- **Minimal Bundle**: Only includes what you use
+The portfolio uses a dark theme with:
+- **Primary Color**: Blue (#2563eb)
+- **Background**: Dark gray/charcoal
+- **Text**: Light gray to white
+
+Modify colors in `tailwind.config.js` to match your brand.
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: 1024px+
 
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
-1. Push your code to GitHub
-2. Connect your repo to Vercel
-3. Deploy automatically
+```bash
+npm install -g vercel
+vercel
+```
 
 ### Netlify
-1. Build the project: `npm run build`
-2. Drag the `dist` folder to Netlify
-3. Or connect via Git for automatic deployments
+```bash
+npm run build
+# Drag dist/ folder to Netlify
+```
 
 ### GitHub Pages
-1. Install gh-pages: `npm install -D gh-pages`
-2. Add to package.json scripts:
-   ```json
-   "deploy": "gh-pages -d dist"
-   ```
-3. Run: `npm run build && npm run deploy`
+Add to `package.json`:
+```json
+"homepage": "https://username.github.io/portfolio"
+```
 
-## 🔧 Advanced Customizations
+Then: `npm run build && npm run deploy`
 
-### Adding EmailJS Contact Form
-1. Install EmailJS: `npm install emailjs-com`
-2. Set up EmailJS service
-3. Replace the mailto functionality in Contact.tsx
+## 🔐 Environment Variables
 
-### Adding Analytics
-1. Install analytics package
-2. Add tracking code to main.tsx or index.html
-
-### Adding a Blog Section
-1. Create a `Blog.tsx` component
-2. Add blog data structure to siteData.ts
-3. Implement markdown support if needed
+Never commit `.env` file (already in .gitignore). Store sensitive keys in:
+- Vercel: Project Settings → Environment Variables
+- Netlify: Site Settings → Environment Variables
+- GitHub Pages: GitHub Secrets
 
 ## 🐛 Troubleshooting
 
-**Common Issues:**
+**Chatbot not working?**
+- Check VITE_GEMINI_API_KEY in .env
+- Ensure API is enabled in Google Cloud Console
 
-1. **Build errors**: Make sure all dependencies are installed
-2. **Images not loading**: Check the image path in siteData.ts
-3. **Styles not applied**: Verify Tailwind config is correct
-4. **TypeScript errors**: Check all imports and types
+**Contact form not sending?**
+- Verify EmailJS credentials in .env
+- Test EmailJS connection in their dashboard
+
+**Styles not applying?**
+- Clear browser cache
+- Rebuild: `npm run build`
+
+**Build errors?**
+- Delete node_modules and package-lock.json
+- Run: `npm install` again
+
+## 📚 Learn More
+
+- [React Documentation](https://react.dev)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Google Generative AI](https://ai.google.dev)
+- [Vite](https://vitejs.dev)
 
 ## 📄 License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+## 🤝 Support
 
-Feel free to fork this project and customize it for your own use!
+Need help? Check the repository issues or create a new one.
 
 ---
 
-**Need help?** Check the code comments or create an issue in the repository.
-
-**Made with ❤️ using React, TypeScript, and Tailwind CSS**
+**Developed by Rudra Pratap Singh** | [GitHub](https://github.com/rudrapratap19) | [LinkedIn](https://www.linkedin.com/in/rudra-pratap-singh-677149314/)

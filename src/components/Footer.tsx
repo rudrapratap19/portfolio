@@ -27,18 +27,6 @@ export default function Footer() {
               </a>
             ))}
           </div>
-
-          {/* Right side - Built with */}
-          <div className="text-center text-sm  text-gray-400 md:text-right">
-            Built with React & Tailwind CSS
-          </div>
-        </div>
-
-        {/* Bottom section */}
-        <div className="mt-6 border-t  pt-6 text-center border-gray-700">
-          <p className="text-xs  text-gray-500">
-            Made with ❤️ using React, TypeScript, Tailwind CSS, and Framer Motion
-          </p>
         </div>
       </div>
     </footer>
