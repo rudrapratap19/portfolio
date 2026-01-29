@@ -136,7 +136,7 @@ export default function Projects() {
                         {project.title}
                       </h3>
                       
-                      <p className="mt-2 text-sm  text-gray-300 leading-relaxed">
+                      <p className="mt-2 text-sm  text-gray-100 leading-relaxed">
                         {project.summary}
                       </p>
 
@@ -145,7 +145,7 @@ export default function Projects() {
                         {project.tech.map((tech) => (
                           <span
                             key={tech}
-                            className="chip  bg-gray-800 text-gray-300 hover:bg-brand/10 hover:text-brand transition-colors"
+                            className="chip  bg-gray-800 text-gray-100 hover:bg-brand/10 hover:text-brand transition-colors"
                           >
                             {tech}
                           </span>
@@ -157,7 +157,7 @@ export default function Projects() {
                         {project.highlights.slice(0, 2).map((highlight, idx) => (
                           <li key={idx} className="flex items-start space-x-2">
                             <div className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-brand"></div>
-                            <span className="text-xs text-gray-400">
+                            <span className="text-xs text-gray-200">
                               {highlight}
                             </span>
                           </li>

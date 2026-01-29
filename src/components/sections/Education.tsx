@@ -69,7 +69,7 @@ export default function Education() {
                         <h3 className="text-xl font-semibold text-white">
                           {edu.institute}
                         </h3>
-                        <p className="text-gray-300">{edu.degree}</p>
+                        <p className="text-gray-100">{edu.degree}</p>
                       </div>
                     </div>
                   </div>
@@ -80,7 +80,7 @@ export default function Education() {
                     </span>
                     {edu.cgpa && (
                       <div className="flex items-center space-x-2">
-                        <span className="text-sm font-medium text-gray-400 ">CGPA:</span>
+                        <span className="text-sm font-medium text-gray-200 ">CGPA:</span>
                         <span className="rounded-lg px-2 py-1 text-sm font-bold  bg-green-900/30 text-green-300">
                           {edu.cgpa}
                         </span>
@@ -92,7 +92,7 @@ export default function Education() {
                 {/* Progress indicator for current education */}
                 {index === 0 && (
                   <div className="mt-6">
-                    <div className="flex items-center justify-between text-sm text-gray-400 ">
+                    <div className="flex items-center justify-between text-sm text-gray-200 ">
                       <span>Progress</span>
                       <span>Year 3/4</span>
                     </div>

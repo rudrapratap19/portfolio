@@ -151,7 +151,7 @@ export default function Skills() {
                   {siteData.skills[category.key].map((skill) => (
                     <motion.span
                       key={skill}
-                      className="chip  bg-gray-800 text-gray-300 hover:bg-brand/10 hover:text-brand transition-all cursor-default"
+                      className="chip  bg-gray-800 text-gray-100 hover:bg-brand/10 hover:text-brand transition-all cursor-default"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.1 }}
                     >
