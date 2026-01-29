@@ -1,4 +1,5 @@
 // import ThemeToggle from './ThemeToggle';
+import { useState, type MouseEvent } from 'react';
 import { siteData } from '../data/siteData';
 
 const navigationItems = [
@@ -14,8 +15,9 @@ const navigationItems = [
 
 export default function Header() {
   const { profile } = siteData;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.substring(1); // Remove the #
     const targetElement = document.getElementById(targetId);
@@ -26,6 +28,8 @@ export default function Header() {
         block: 'start'
       });
     }
+
+    setIsMenuOpen(false);
   };
 
   return (
@@ -61,7 +65,10 @@ export default function Header() {
           {/* Mobile Menu Button (you can implement mobile menu later) */}
           <button 
             className="md:hidden"
-            aria-label="Open mobile menu"
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
           >
             <svg 
               className="h-6 w-6" 
@@ -78,6 +85,27 @@ export default function Header() {
             </svg>
           </button>
         </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div
+        id="mobile-menu"
+        className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}
+      >
+        <nav className="border-t border-gray-800 bg-gray-950/95 px-4 py-4">
+          <div className="flex flex-col space-y-3">
+            {navigationItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
       </div>
     </header>
   );
