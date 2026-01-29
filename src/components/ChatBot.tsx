@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { AiOutlineMessage, AiOutlineClose, AiOutlineSend } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineSend } from 'react-icons/ai';
+import { HiOutlineChat } from 'react-icons/hi';
+import { RiRobotLine } from 'react-icons/ri';
 import './ChatBot.css';
 
 type ChatMessage = {
@@ -15,7 +17,7 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 1,
-      text: "Hi! I'm Rudra's AI Assistant. Ask me anything about my projects, skills, or experience!",
+      text: "Hi there! 👋 I'm Rudra's AI Assistant. Would you like to know more about his projects, skills, or experience? Feel free to ask me anything!",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -31,6 +33,16 @@ export default function ChatBot() {
       genAI.current = new GoogleGenerativeAI(apiKey);
     } else {
       console.warn('Gemini API key not found. Please add VITE_GEMINI_API_KEY to your .env file');
+    }
+
+    // Auto-prompt user after a short delay on first visit
+    const hasSeenPrompt = sessionStorage.getItem('chatbot-prompt-shown');
+    if (!hasSeenPrompt) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        sessionStorage.setItem('chatbot-prompt-shown', 'true');
+      }, 2000);
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -116,7 +128,7 @@ Keep responses friendly, concise, and professional. If asked something not relat
         title="Chat with AI Assistant"
         aria-label="Chat with AI Assistant"
       >
-        {isOpen ? <AiOutlineClose size={24} /> : <AiOutlineMessage size={24} />}
+        {isOpen ? <AiOutlineClose size={24} /> : <RiRobotLine size={26} />}
       </button>
 
       {isOpen && (
