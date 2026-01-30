@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { AiOutlineClose, AiOutlineSend } from 'react-icons/ai';
-import { HiOutlineChat } from 'react-icons/hi';
 import { RiRobotLine } from 'react-icons/ri';
+import { siteData } from '../data/siteData';
 import './ChatBot.css';
 
 type ChatMessage = {
@@ -82,15 +82,13 @@ export default function ChatBot() {
 
       const model = genAI.current.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
+      const resumeData = JSON.stringify(siteData, null, 2);
       const systemPrompt = `You are an AI assistant for Rudra Pratap Singh's portfolio. You represent Rudra and help answer questions about his projects, skills, and experience.
 
-Rudra's background:
-- App Developer & Software Developer
-- B.Tech AI & Data Science @ IIIT Raichur
-- Skills: Flutter, Firebase, Python, C/C++, JavaScript, Data Structures & Algorithms
-- Projects include ArenaFlow, CampusCare, Movie Recommender, Flutter Todo Reminder App
+    Use the following resume data as the source of truth:
+    ${resumeData}
 
-Keep responses friendly, concise, and professional. If asked something not related to Rudra's portfolio, politely redirect to portfolio-related topics.`;
+    Keep responses friendly, concise, and professional. Respond in plain text only. Do not use bullet points, lists, markdown, or special characters like *, -, or •. If asked something not related to Rudra's portfolio, politely redirect to portfolio-related topics.`;
 
       const prompt = `${systemPrompt}\n\nUser question: ${inputValue}`;
 
